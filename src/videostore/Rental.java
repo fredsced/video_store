@@ -36,12 +36,13 @@ public class Rental {
         }
         return result;
     }
-    public int getFrequentPoints(){
-        int frequentRenterPoints = 0;
-        frequentRenterPoints ++;
 
-        if((getMovie().getPriceCode() == Movie.NEW_RELEASE) && getDaysRented() > 1)
-            frequentRenterPoints ++;
+    public int getFrequentPoints() {
+        int frequentRenterPoints = 0;
+        frequentRenterPoints++;
+
+        if ((getMovie().getPriceCode() == Movie.NEW_RELEASE) && getDaysRented() > 1)
+            frequentRenterPoints++;
         return frequentRenterPoints;
     }
 
