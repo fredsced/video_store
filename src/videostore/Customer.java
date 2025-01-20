@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Customer {
-    private String name;
-    private List<Rental> rentals = new ArrayList<>();
+    private final String name;
+    private final List<Rental> rentals = new ArrayList<>();
 
     public Customer(String name) {
-        name = name;
+        this.name = name;
     }
 
     public void addRental(Rental rental) {
@@ -16,7 +16,7 @@ public class Customer {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public String statement() {
@@ -34,7 +34,7 @@ public class Customer {
                 case Movie.NEW_RELEASE:
                     thisAmount += each.getDaysRented() * 3;
                     break;
-                case Movie.CHILDRENS:
+                case Movie.CHILDREN:
                     thisAmount += 1.5;
                     if (each.getDaysRented() > 3)
                         thisAmount += (each.getDaysRented() - 3) * 1.5;
@@ -45,11 +45,13 @@ public class Customer {
             if((each.getMovie().getPriceCode() == Movie.NEW_RELEASE) && each.getDaysRented() > 1)
                 frequentRenterPoints ++;
 
-            result += "\t" + each.getMovie().getTitle() + '\t' + String.valueOf(thisAmount);
+            result += "\t" + each.getMovie().getTitle() + '\t' + String.valueOf(thisAmount) + "\n";
+
+            totalAmount += thisAmount;
 
         }
         result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
-        result += "You earned " + String.valueOf(frequentRenterPoints) + "frequent renter points";
+        result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
 
         return result;
     }

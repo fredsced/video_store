@@ -1,16 +1,16 @@
 package videostore;
 
 public class Movie {
-    public static final int CHILDRENS = 2;
+    public static final int CHILDREN = 2;
     public static final int REGULAR = 0;
     public static final int NEW_RELEASE = 1;
 
-    private String title;
+    private final String title;
     private int priceCode;
 
     public Movie(String title, int priceCode) {
-        title = title;
-        priceCode = priceCode;
+        this.title = title;
+        this.priceCode = priceCode;
     }
 
     public int getPriceCode() {
@@ -18,7 +18,7 @@ public class Movie {
     }
 
     public void setPriceCode(int priceCode) {
-        priceCode = priceCode;
+        this.priceCode = priceCode;
     }
 
     public String getTitle() {
