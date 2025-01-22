@@ -6,7 +6,7 @@ import videostore.Rental;
 public class Main {
     public static void main(String[] args) {
 
-        Movie movie = new Movie("Star War", Movie.NEW_RELEASE);
+        Movie movie = new Movie("Star War", 1);
         Rental rental = new Rental(movie, 3);
         Customer customer = new Customer("John");
 
