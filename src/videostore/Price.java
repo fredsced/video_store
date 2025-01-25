@@ -6,4 +6,8 @@ public abstract class Price {
 
     abstract double getCharge(int daysRented);
 
+    int getFrequentPoint(int daysRented){
+        return 1;
+    }
+
 }
